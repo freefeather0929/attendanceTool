@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="layout/layui/css/layui.css">
+
+
+</head>
+
+<body>
+<div class="layui-container">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+	 			<legend><h2>应出勤天数计算工具</h2></legend>
+    </fieldset>   
+	<div class="layui-row">
+		<div class="layui-col-xs12">
+		    
+		    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+ 				<legend>考勤周期选择</legend>
+   			</fieldset>
+			<div class="layui-form" style="width: 100%">
+		  		<div class="layui-form-item" style="width: 100%">
+					<div class="layui-inline" style="width: 100%">
+				      <label class="layui-form-label">考勤月份</label>
+				      <div class="layui-input-inline" style="width: 274px">
+				          <input type="text" class="layui-input" id="month" placeholder="yyyy-MM" >
+				      </div>
+				    </div>
+				</div>
+				<div class="layui-form-item" style="width: 100%">
+					<div class="layui-inline" style="width: 100%">
+				      <label class="layui-form-label">日期范围</label>
+				      <div class="layui-input-inline" style="width: 274px">
+				          <input type="text" class="layui-input" id="daterange" placeholder=" - " >
+				      </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	<div class="layui-row">
+		<div class="layui-col-xs12">
+    		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+ 				<legend>法定节假日选择</legend>
+   			</fieldset>
+    		<div class="layui-btn-group">
+			  <button class="layui-btn" id="btn_tbl_add0">增加</button>
+			  <button class="layui-btn" id="btn_tbl_del0">删除</button>
+			</div>
+    		
+    		<table class="layui-table" id="tbl_0" name="date_table" style="width:500px">
+    			<colgroup>
+    				<col width="100">
+	      			<col width="150">
+	      			<col>
+    			</colgroup>
+			    <thead>
+			        <tr id="tbl_row_0_0">
+			        	<th>
+			        		<input type="checkbox" id="chk_0_all"  />
+			        	</th>
+				        <th>序号</th>
+				        <th>日期</th>
+				        
+			        </tr> 
+			    </thead>
+		    </table>
+		    	
+    	</div>
+    </div>
+    <div class="layui-row">
+		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+			<legend>调整上班日期</legend>
+  		</fieldset>
+		<div class="layui-col-xs6">
+			<blockquote class="layui-elem-quote">标准工时制</blockquote>
+    		<div class="layui-btn-group demoTable">
+			  <button class="layui-btn" id="btn_tbl_add1">增加</button>
+			  <button class="layui-btn" id="btn_tbl_del1">删除</button>
+			</div>
+   		
+    		<table class="layui-table" id="tbl_1" name="date_table" style="width:500px">
+    			<colgroup>
+    				<col width="100">
+	      			<col width="150">
+	      			<col>
+    			</colgroup>
+			    <thead>
+			        <tr>
+			        	<th>
+			        		<input type="checkbox" id="chk_1_all"  />
+			        	</th>
+				        <th>序号</th>
+				        <th>日期</th>
+				        
+			        </tr> 
+			    </thead>
+		    </table>
+		    	
+    	</div>
+    	<div class="layui-col-xs6">
+    		<blockquote class="layui-elem-quote">综合工时制</blockquote>
+    		<div class="layui-btn-group demoTable">
+			  <button class="layui-btn" id="btn_tbl_add2">增加</button>
+			  <button class="layui-btn" id="btn_tbl_del2">删除</button>
+			</div>
+    			
+	    		<table class="layui-table" id="tbl_2" name="date_table" style="width:500px">
+	    			<colgroup>
+	    				<col width="100">
+		      			<col width="150">
+		      			<col>
+	    			</colgroup>
+				    <thead>
+				        <tr>
+				        	<th>
+				        		<input type="checkbox" id="chk_2_all"  />
+				        	</th>
+					        <th>序号</th>
+					        <th>日期</th>
+					        
+				        </tr> 
+				    </thead>
+			    </table>
+		    	
+    	</div>
+    </div>
+    <div class="layui-row">
+    	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+			<legend>调整休息日期</legend>
+  		</fieldset>
+		<div class="layui-col-xs6">
+    		<blockquote class="layui-elem-quote">标准工时制</blockquote>
+    		<div class="layui-btn-group demoTable">
+			  <button class="layui-btn" id="btn_tbl_add3">增加</button>
+			  <button class="layui-btn" id="btn_tbl_del3">删除</button>
+			</div>
+    		
+	    		<table class="layui-table" id="tbl_3" name="date_table" style="width:500px">
+	    			<colgroup>
+	    				<col width="100">
+		      			<col width="150">
+		      			<col>
+	    			</colgroup>
+				    <thead>
+				        <tr>
+				        	<th>
+				        		<input type="checkbox" id="chk_3_all"  />
+				        	</th>
+					        <th>序号</th>
+					        <th>日期</th>
+					        
+				        </tr> 
+				    </thead>
+			    	
+			    </table>
+		    	
+    	</div>
+    	<div class="layui-col-xs6">
+    		<blockquote class="layui-elem-quote">综合工时制</blockquote>
+    		<div class="layui-btn-group demoTable">
+			  <button class="layui-btn" id="btn_tbl_add4">增加</button>
+			  <button class="layui-btn" id="btn_tbl_del4">删除</button>
+			</div>
+    			
+	    		<table class="layui-table" id="tbl_4" name="date_table" style="width:500px">
+	    			<colgroup>
+	    				<col width="100">
+		      			<col width="150">
+		      			<col>
+	    			</colgroup>
+				    <thead>
+				        <tr>
+				        	<th>
+				        		<input type="checkbox" id="chk_4_all"  />
+				        	</th>
+					        <th>序号</th>
+					        <th>日期</th>
+					        
+				        </tr> 
+				    </thead>
+			    	
+			    </table>
+		    	
+    	</div>
+    </div>
+<div class="layui-row">
+
+	<div class="layui-col-xs12">
+		<button type="button" class="layui-btn layui-btn-normal" id="btn_request">开始计算</button>
+	</div>
+
+</div>
+    <div class="layui-row">
+		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+			<legend>计算结果</legend>
+  		</fieldset>
+		<div class="layui-col-xs6">
+    		<blockquote class="layui-elem-quote">标准工时制</blockquote>
+	    		<table class="layui-table" id="result_0" name="result_table" style="width:500px">
+	    			<colgroup>
+	    				<col width="100">
+		      			<col width="150">
+		      			<col>
+	    			</colgroup>
+				    <thead>
+				        <tr>
+					        <th colspan="2"></th>
+				        </tr> 
+				    </thead>
+			    	<tbody>
+				      	<tr id="result_row_0_0">
+					        <td>应出勤天数：</td>
+					        <td></td>
+				        </tr>
+				      	<tr id="result_row_0_1">
+					        <td>全月天数：</td>
+					        <td></td>
+				        </tr>
+				    	<tr id="result_row_0_2">
+					        <td>工作日天数：</td>
+					        <td></td>
+				        </tr>
+				        <tr id="result_row_0_3">
+					        <td>周末休息日天数：</td>
+					        <td></td>
+				        </tr>
+				        <tr id="result_row_0_4">
+					        <td>调整上班天数：</td>
+					        <td></td>
+				        </tr>
+				        <tr id="result_row_0_5">
+					        <td>调整休息天数：</td>
+					        <td></td>
+				        </tr>			        
+	    			</tbody>
+			    </table>
+		    	
+    	</div>
+    	<div class="layui-col-xs6">
+    		<blockquote class="layui-elem-quote">综合工时制</blockquote>
+	    		<table class="layui-table" id="result_1" name="result_table" style="width:500px">
+	    			<colgroup>
+	    				<col width="100">
+		      			<col width="150">
+		      			<col>
+	    			</colgroup>
+				    <thead>
+				        <tr>
+					        <th colspan="2"></th>
+				        </tr> 
+				    </thead>
+			    	<tbody>
+				      	<tr id="result_row_1_0">
+					        <td>应出勤天数：</td>
+					        <td></td>
+				        </tr>
+				      	<tr id="result_row_1_1">
+					        <td>全月天数：</td>
+					        <td></td>
+				        </tr>
+				    	<tr id="result_row_1_2">
+					        <td>工作日天数：</td>
+					        <td></td>
+				        </tr>
+				        <tr id="result_row_1_3">
+					        <td>周末休息日天数：</td>
+					        <td></td>
+				        </tr>
+				        <tr id="result_row_1_4">
+					        <td>调整上班天数：</td>
+					        <td></td>
+				        </tr>
+				        <tr id="result_row_1_5">
+					        <td>调整休息天数：</td>
+					        <td></td>
+				        </tr>			        
+	    			</tbody>
+			    </table>
+		    	
+    	</div>
+    </div>
+</div>
+	
+<script type="text/javascript" src="js/jquery/jquery.js"></script>
+<script type="text/javascript" src="layout/layui/layui.all.js"></script>
+<script>
+	//渲染月份、日期选择
+	layui.use('laydate', function(){
+		var laydate = layui.laydate;
+		var seDate = "";
+		//日期范围
+		laydate.render({
+		   elem: '#daterange'
+		    ,range: true
+		    ,position: 'fixed'
+		    //,value: '2019-01-26 - 2020-01-25'
+		});
+		
+		//年月选择器
+		laydate.render({
+		    elem: '#month'
+		    ,type: 'month'
+		    ,position: 'fixed'
+		    ,done: function(value, date, endDate){
+		    	var month = new Date(value.replace(/-/,"/"));
+		    	//console.log(month);
+		    	endDate = value+"-25";
+		    	var yearStr = month.getFullYear();
+		    	var monthStr = month.getMonth()+1;
+		    	var year2 = yearStr;
+		    	var month2 = monthStr - 1;
+		    	if(month2 == 0){
+		    		year2 = yearStr - 1;
+		    		month2 = 12;
+		    	}
+		    	
+		    	if(month2 < 10){
+		    		month2 = "0" + month2;
+		    	}
+		    	
+		    	startDate = year2 + "-" + month2 + "-" + "26";
+		    	seDate = startDate + " - " + endDate
+		    	laydate.render({
+				    elem: '#daterange'
+				    ,range: true
+				    ,position: 'fixed'
+				    ,value: seDate
+				  });
+		    	//jQuery("#daterange").val();
+		    }
+		});
+
+		laydate.render({
+			elem: '.date_input'
+			,position: 'fixed'
+		});
+	});
+	
+	jQuery(function() {
+		
+		//alert(jQuery('#datedata').val());
+		//绑定计算触发按钮
+		jQuery("#btn_request").bind('click', function() {
+			
+			var data = createRequestData();
+			
+			jQuery.ajax({
+				async : false,
+				type : 'post',
+				contentType : "application/json",
+				url : '/getconfig',
+				data : JSON.stringify(data),
+				success : function(data) {
+					//console.log(data.result_s);
+					var rs = data.result_s;
+					//处理标准工时制结果
+					jQuery("#result_row_0_0 td:eq(1)").html(rs.onDutyDays);
+					jQuery("#result_row_0_1 td:eq(1)").html(rs.daysOfMonth);
+					jQuery("#result_row_0_2 td:eq(1)").html(rs.daysOfWeekday);
+					jQuery("#result_row_0_3 td:eq(1)").html(rs.daysOfWeekend);
+					jQuery("#result_row_0_4 td:eq(1)").html(rs.daysOfAjustedWorkDay);
+					jQuery("#result_row_0_5 td:eq(1)").html(rs.daysOfAjustedRestDay);
+					
+					rs = data.result_n;
+					//处理标准工时制结果
+					jQuery("#result_row_1_0 td:eq(1)").html(rs.onDutyDays);
+					jQuery("#result_row_1_1 td:eq(1)").html(rs.daysOfMonth);
+					jQuery("#result_row_1_2 td:eq(1)").html(rs.daysOfWeekday);
+					jQuery("#result_row_1_3 td:eq(1)").html(rs.daysOfWeekend);
+					jQuery("#result_row_1_4 td:eq(1)").html(rs.daysOfAjustedWorkDay);
+					jQuery("#result_row_1_5 td:eq(1)").html(rs.daysOfAjustedRestDay);
+				},
+				datatype : 'json'
+			});
+		});
+
+		jQuery("#month").bind('click', function(){
+			//alert(jQuery(this).val());
+			
+		});
+		
+		//alert(jQuery("table[name=date_table]").size());
+		
+		jQuery("table[name=date_table]").each(function(i,n){
+			
+			jQuery("#btn_tbl_add"+i).bind('click',function(){
+				addRow(i);
+			});
+			
+			jQuery("#btn_tbl_del"+i).bind('click',function(){
+				delRow(i);
+			});
+			
+			jQuery("#chk_"+i+"_all").bind('click',function(){
+				selectAllControll(i);
+			});
+		});
+	});
+	
+//创建传输参数	
+function createRequestData(){
+	 var requestData = {};
+	 var holidayList = [];  //法定节假日数据
+	 var adjustDayData = {};
+	 //创建法定节假日数据
+	 var table_lhd_nodes = jQuery("input[name=chk_node_0]");
+	 jQuery(table_lhd_nodes).each(function(i,n){
+		 var row = jQuery(n).parent().parent();
+		 var date = jQuery("td:eq(2) input", row).val();
+		 //alert(date);
+		 holidayList.push(date);
+	 });
+	 requestData.listLegalHoliday = holidayList;
+	 //console.log(requestData);
+	 //创建调整上班日数据-标准工作制
+	 var table_nodes = jQuery("input[name=chk_node_1]");
+	 var jwd_s_List = [];
+	 var jwd_s_data = {};
+	 jQuery(table_nodes).each(function(i,n){
+		 var row = jQuery(n).parent().parent();
+		 var date = jQuery("td:eq(2) input", row).val();
+		 jwd_s_List.push(date);
+	 });
+	 jwd_s_data.attendanceType = "STANDARD";
+	 jwd_s_data.scheduleType = "ADJUSTWORKDAYS";
+	 jwd_s_data.listModifyDays = jwd_s_List;
+	 
+	 adjustDayData.jwd_s = jwd_s_data;
+	//创建调整上班日数据-综合工作制
+	 table_nodes = jQuery("input[name=chk_node_2]");
+	 var jwd_n_List = [];
+	 var jwd_n_data = {};
+	 jQuery(table_nodes).each(function(i,n){
+		 var row = jQuery(n).parent().parent();
+		 var date = jQuery("td:eq(2) input", row).val();
+		 jwd_n_List.push(date);
+	 });
+	 jwd_n_data.attendanceType = "NON_FREQUENC";
+	 jwd_n_data.scheduleType = "ADJUSTWORKDAYS";
+	 jwd_n_data.listModifyDays = jwd_n_List;
+	 
+	 adjustDayData.jwd_n = jwd_n_data;
+	 
+	 //创建调整休息日数据-标准工作制
+	 table_nodes = jQuery("input[name=chk_node_3]");
+	 var jrd_s_List = [];
+	 var jrd_s_data = {};
+	 jQuery(table_nodes).each(function(i,n){
+		 var row = jQuery(n).parent().parent();
+		 var date = jQuery("td:eq(2) input", row).val();
+		 jrd_s_List.push(date);
+	 });
+	 jrd_s_data.attendanceType = "STANDARD";
+	 jrd_s_data.scheduleType = "ADJUSTRESTDAYS";
+	 jrd_s_data.listModifyDays = jrd_s_List;
+	 
+	 adjustDayData.jrd_s = jrd_s_data;
+	 
+	 //创建调整休息日数据-综合工作制
+	 table_nodes = jQuery("input[name=chk_node_4]");
+	 var jrd_n_List = [];
+	 var jrd_n_data = {};
+	 jQuery(table_nodes).each(function(i,n){
+		 var row = jQuery(n).parent().parent();
+		 var date = jQuery("td:eq(2) input", row).val();
+		 jrd_n_List.push(date);
+	 });
+	 jrd_n_data.attendanceType = "NON_FREQUENC";
+	 jrd_n_data.scheduleType = "ADJUSTRESTDAYS";
+	 jrd_n_data.listModifyDays = jrd_n_List;
+	 
+	 adjustDayData.jrd_n = jrd_n_data;
+	 requestData.mapModifyDays = adjustDayData;
+	 //获取月份
+	 var month = jQuery("#month").val();
+	 //获取起止日期
+	 var dateRange = jQuery("#daterange").val();
+	 var startDate = dateRange.slice(0,10);
+	 var endDate = dateRange.slice(-10,dateRange.length);
+	 
+	 requestData.month = month;
+	 requestData.startDate = startDate;
+	 requestData.endDate = endDate;
+	 
+	 return requestData;
+}	
+
+/*
+	***********************   表格操作函数     *****************************
+*/
+function addRow(tid){
+	//alert(tid);
+	var tbl = jQuery("#tbl_"+tid);
+	var rowNum = jQuery("input[name=chk_node_"+tid+"]").size();
+	//alert(rowNum);
+	var rowHtml = "<tr id=\"tbl_row_"+tid+"_"+rowNum+"\">";
+	rowHtml += "<td><input type=\"checkbox\" id=\"chk_"+tid+"_"+rowNum+"\" name=\"chk_node_"+tid+"\"></td>";
+	rowHtml += "<td>"+(parseInt(rowNum,10)+1)+"</td>";
+	rowHtml += "<td><input id=\"tbl_date_"+tid+"_"+rowNum+"\" class=\"layui-input test_input\" type=\"text\" value=\"\"></td>";
+    rowHtml += "</tr>";
+    jQuery(tbl).append(rowHtml);
+    layui.use('laydate', function(){
+    	var laydate = layui.laydate;
+    	laydate.render({
+		    elem: '#tbl_date_'+tid+'_'+rowNum
+		    //,range: true
+		    ,position: 'fixed'
+		    //,value: '2019-01-26 - 2020-01-25'
+		  });
+    });
+}
+
+//删除行
+function delRow(tid){
+	var nodeChecked = jQuery("input[name=chk_node_"+tid+"]:checked");
+	if(jQuery(nodeChecked).size() == 0){
+		alert("请选择要删除的行！");
+		return false;
+	}
+	jQuery(nodeChecked).each(function(i,n){
+		var nodeId = jQuery(n).attr("id");
+		var rowId_index = nodeId.slice(nodeId.indexOf("_"),nodeId.length);
+		jQuery("#tbl_row"+rowId_index).remove();
+	});
+	rowSort(tid);
+	//alert(jQuery(rowChecked).size()+"行被选中。");
+}
+//表格行排序函数
+function rowSort(tid){
+	var nodes = jQuery("input[name=chk_node_"+tid+"]");
+	if(jQuery(nodes).size() > 0){
+		jQuery(nodes).each(function(i,n){
+			var nodeId = jQuery(n).attr("id");
+			var row = jQuery("#tbl_row"+nodeId.slice(nodeId.indexOf("_"),nodeId.length));
+			var cell_RowNumber = jQuery("td:eq(1)", row);
+			jQuery(cell_RowNumber).html(i+1);
+		});
+	}
+}
+
+//全选控制
+function selectAllControll(tid){
+	var nodes = jQuery("input[name=chk_node_"+tid+"]");
+	var nodeChecked = jQuery("input[name=chk_node_"+tid+"]:checked");
+	//alert(jQuery("#chk_"+tid+"_all").is(" :checked"));
+	
+	if(jQuery("#chk_"+tid+"_all").is(" :checked") == true){
+		jQuery("input[name=chk_node_"+tid+"]").each(function(i,n){
+			jQuery(this).attr("checked", true);
+			var nodeId = jQuery(n).attr("id");
+			jQuery(n).parent().html("<input type=\"checkbox\" id=\""+nodeId+"\" name=\"chk_node_"+tid+"\" checked=\"checked\">");
+		});
+	} else {
+		jQuery("input[name=chk_node_"+tid+"]").each(function(i,n){
+			jQuery(this).attr("checked", false);
+		});
+	}
+	//console.log(jQuery("input[name=chk_node_"+tid+"]:checked").size());
+}
+
+
+</script>	
+	
+</body>
+
+
+
+</html>
